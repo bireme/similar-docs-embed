@@ -1,0 +1,12 @@
+<?php
+
+define("RELATIVE_PATH", "/"); /* if the app isn't installed at the root directory */
+define("MAIN_TEMPLATE", __DIR__ . '/templates/main.php');
+define("EMBED_TEMPLATE", __DIR__ . '/templates/embed1.php');
+define('LOG_FILE', __DIR__.'/log/#DATE#.out.log');
+define('TIMEZONE', 'America/Sao_Paulo');
+define("DEFAULT_LANG", "pt");
+define("VHL_SEARCH_PORTAL_DOMAIN", "http://pesquisa.bvsalud.org");
+define("SIMDOCS_GET_RELATED", "http://serverofi5.bireme.br:8180/SDService/SDService?adhocSimilarDocs=");
+
+?>

@@ -146,6 +146,8 @@ class Template {
     {
         self::__log('Started');
 
+        $string = '';
+        $similars = array();
         $filter_db = ( $db ) ? '&sources='.$db : '';
         $resource = sprintf('%s%s%s', SIMDOCS_GET_RELATED, rawurlencode($query), $filter_db);
         $data = SimDocs::adhocSimilarDocs($query, $db);
@@ -154,31 +156,28 @@ class Template {
             self::__log('Could not fetch resource "%s"', $resource);
         } else {
             self::__log('Successfully fetched');
-        }
 
-        $string = '';
-        $similars = array();
+            foreach ($data as $similar) {
+                $title = SimDocs::get_similardoc_title($similar, $lang);
 
-        foreach ($data as $similar) {
-            $title = SimDocs::get_similardoc_title($similar, $lang);
-
-            if ( !empty($string) ) {
-                if ( strtolower(rtrim($title, '.')) == strtolower(rtrim($string, '.')) ) {
-                    continue;
+                if ( !empty($string) ) {
+                    if ( strtolower(rtrim($title, '.')) == strtolower(rtrim($string, '.')) ) {
+                        continue;
+                    }
                 }
+
+                $url = SimDocs::generate_similardoc_url($similar['id']);
+
+                $doc = array();
+                $doc['title'] = htmlspecialchars_decode($title);
+                $doc['url'] = $url;
+                $similars[] = $doc;
+
+                $string = $title;
             }
 
-            $url = SimDocs::generate_similardoc_url($similar['id']);
-
-            $doc = array();
-            $doc['title'] = htmlspecialchars_decode($title);
-            $doc['url'] = $url;
-            $similars[] = $doc;
-
-            $string = $title;
+            self::__log('Successfully transformed');
         }
-
-        self::__log('Successfully transformed');
 
         return $similars;
     }

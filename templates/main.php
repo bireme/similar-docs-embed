@@ -124,6 +124,7 @@
 						<button type="submit" class="btnBlueM" id="btnFiltroD">Filtrar</button>
 					</div>
 				</div>
+				<?php if ( $similarDocs ) : ?>
 				<div class="col-md-9 d-print-block">
 					<div class="box4">
 						<div class="titleArt"><b>Similares de: </b><?php echo $encode($arguments['query']); ?></div>
@@ -156,6 +157,13 @@
 						-->
 					</div>
 				</div>
+				<?php else : ?>
+				<div class="col-md-9 d-print-block">
+					<div class="box4">
+						<div class="titleArt text-center">Nenhum similar encontrado</div>
+					</div>
+				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>

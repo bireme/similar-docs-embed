@@ -25,13 +25,17 @@
 	</div>
 	<div id="bvsFrameList">
 		<div class="container">
-			<?php foreach ($similarDocs as $similar) : ?>
-			<div>
-				<a href="<?php echo $encode($similar['url']); ?>"><?php echo $encode($similar['title']); ?></a><br>
-				<!-- Base de Dados: <a href=""><b>LILACS</b></a> -->
-			</div>
-			<hr>
-			<?php endforeach; ?>
+			<?php if ( $similarDocs ) : ?>
+				<?php foreach ($similarDocs as $similar) : ?>
+				<div>
+					<a href="<?php echo $encode($similar['url']); ?>"><?php echo $encode($similar['title']); ?></a><br>
+					<!-- Base de Dados: <a href=""><b>LILACS</b></a> -->
+				</div>
+				<hr>
+				<?php endforeach; ?>
+			<?php else : ?>
+			<div class="text-center">Nenhum similar encontrado</div><hr>
+			<?php endif; ?>
 		</div>
 	</div>
 	<div id="bvsFrameShare">

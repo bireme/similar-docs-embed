@@ -25,7 +25,6 @@
 	</div>
 	<div id="bvsFrameList">
 		<div class="container">
-
 			<div class="accordion" id="accordionExample">
 				<?php foreach ($similarDB as $key => $value) : ?>
 				<div class="card">
@@ -38,12 +37,16 @@
 					</div>
 					<div id="collapse-<?php echo strtolower($key); ?>" class="collapse" aria-labelledby="heading-<?php echo strtolower($key); ?>" data-parent="#accordionExample">
 						<div class="card-body">
-							<?php foreach ($value as $similar) : ?>
-							<div>
-								<a href="<?php echo $encode($similar['url']); ?>"><?php echo $encode($similar['title']); ?></a><br>
-							</div>
-							<hr>
-							<?php endforeach; ?>
+							<?php if ( $value ) : ?>
+								<?php foreach ($value as $similar) : ?>
+								<div>
+									<a href="<?php echo $encode($similar['url']); ?>"><?php echo $encode($similar['title']); ?></a><br>
+								</div>
+								<hr>
+								<?php endforeach; ?>
+							<?php else : ?>
+							<div class="text-center">Nenhum similar encontrado</div>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>

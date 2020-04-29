@@ -149,10 +149,12 @@ class Template {
         $filter_db = ( $db ) ? '&sources='.$db : '';
         $resource = sprintf('%s%s%s', SIMDOCS_GET_RELATED, rawurlencode($query), $filter_db);
         $data = SimDocs::adhocSimilarDocs($query, $db);
+        
         if (!$data) {
-            self::__error('Could not fetch resource "%s"', $resource);
+            self::__log('Could not fetch resource "%s"', $resource);
+        } else {
+            self::__log('Successfully fetched');
         }
-        self::__log('Successfully fetched');
 
         $string = '';
         $similars = array();

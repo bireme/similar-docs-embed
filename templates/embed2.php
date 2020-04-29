@@ -35,12 +35,16 @@
 			<div class="tab-content" id="myTabContent">
 				<?php foreach ($similarDB as $key => $value) : reset($similarDB); ?>
 				<div class="tab-pane fade <?php echo ( $key === key($similarDB) ) ? 'active show' : ''; ?>" id="<?php echo strtolower($key); ?>" role="tabpanel" aria-labelledby="tab-<?php echo strtolower($key); ?>">
-					<?php foreach ($value as $similar) : ?>
+					<?php if ( $value ) : ?>
+						<?php foreach ($value as $similar) : ?>
 						<div>
 							<a href="<?php echo $encode($similar['url']); ?>"><?php echo $encode($similar['title']); ?></a><br>
 						</div>
 						<hr>
-					<?php endforeach; ?>
+						<?php endforeach; ?>
+					<?php else : ?>
+					<div class="text-center">Nenhum similar encontrado</div>
+					<?php endif; ?>
 				</div>
 				<?php endforeach; ?>
 			</div>

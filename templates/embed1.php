@@ -28,7 +28,7 @@
 			<?php if ( $similarDocs ) : ?>
 				<?php foreach ($similarDocs as $similar) : ?>
 				<div>
-					<a href="<?php echo $encode($similar['url']); ?>"><?php echo $encode($similar['title']); ?></a><br>
+					<a href="<?php echo $encode($similar['url']); ?>" target="_blank"><?php echo $encode($similar['title']); ?></a><br>
 					<!-- Base de Dados: <a href=""><b>LILACS</b></a> -->
 				</div>
 				<hr>
@@ -40,7 +40,7 @@
 	</div>
 	<div id="bvsFrameShare">
 		<div class="container">
-			<a href="<?php echo get_url_lang($arguments['lang']); ?>" target="_blank"><img src="img/full.svg" alt=""></a>
+			<a href="<?php echo get_site_url($arguments['lang']); ?>" target="_blank"><img src="img/full.svg" alt=""></a>
 			<a href="#" id="btShare"><img src="img/share.svg" alt=""></a>
 		</div>
 	</div>
@@ -60,9 +60,9 @@
 
               var addthis_share = addthis_share||{};
                   addthis_share.title = "Similares";
-                  addthis_share.url = "<?php echo get_url_lang($arguments['lang']); ?>";
+                  addthis_share.url = "<?php echo get_site_url($arguments['lang']); ?>";
             </script>
-            <div class="addthis_toolbox addthis_60x60_style" addthis:url="<?php echo get_url_lang($arguments['lang']); ?>">
+            <div class="addthis_toolbox addthis_60x60_style" addthis:url="<?php echo get_site_url($arguments['lang']); ?>">
                 <a class="bvsFrameImg addthis_button_link"><img src="img/link.svg" width="50" alt=""></a>
                 <a class="bvsFrameImg addthis_button_facebook"><img src="img/facebook.svg" width="50" alt=""></a>
                 <a class="bvsFrameImg addthis_button_twitter"><img src="img/twitter.svg" width="50" alt=""></a>

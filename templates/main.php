@@ -48,9 +48,9 @@
 					</div>
 					<div class="lang">
 						<ul>
-							<li><a href="<?php echo get_url_lang('pt'); ?>" class="<?php echo ( 'pt' ==  $arguments['lang'] ) ? 'active' : ''; ?>">PT</a></li>
-							<li><a href="<?php echo get_url_lang('es'); ?>" class="<?php echo ( 'es' ==  $arguments['lang'] ) ? 'active' : ''; ?>">ES</a></li>
-							<li><a href="<?php echo get_url_lang('en'); ?>" class="<?php echo ( 'en' ==  $arguments['lang'] ) ? 'active' : ''; ?>">EN</a></li>
+							<li><a href="<?php echo get_site_url('pt'); ?>" class="<?php echo ( 'pt' ==  $arguments['lang'] ) ? 'active' : ''; ?>">PT</a></li>
+							<li><a href="<?php echo get_site_url('es'); ?>" class="<?php echo ( 'es' ==  $arguments['lang'] ) ? 'active' : ''; ?>">ES</a></li>
+							<li><a href="<?php echo get_site_url('en'); ?>" class="<?php echo ( 'en' ==  $arguments['lang'] ) ? 'active' : ''; ?>">EN</a></li>
 						</ul>
 					</div>
 					<div class="headerBt">

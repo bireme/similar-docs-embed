@@ -48,9 +48,9 @@
 					</div>
 					<div class="lang">
 						<ul>
-							<li><a href="<?php echo get_site_url('pt'); ?>" class="<?php echo ( 'pt' ==  $arguments['lang'] ) ? 'active' : ''; ?>">PT</a></li>
-							<li><a href="<?php echo get_site_url('es'); ?>" class="<?php echo ( 'es' ==  $arguments['lang'] ) ? 'active' : ''; ?>">ES</a></li>
-							<li><a href="<?php echo get_site_url('en'); ?>" class="<?php echo ( 'en' ==  $arguments['lang'] ) ? 'active' : ''; ?>">EN</a></li>
+							<li><a href="<?php echo get_site_url('pt'); ?>" class="<?php echo ( 'pt' ==  $arguments['lang'] ) ? 'active' : ''; ?>">português</a></li>
+							<li><a href="<?php echo get_site_url('es'); ?>" class="<?php echo ( 'es' ==  $arguments['lang'] ) ? 'active' : ''; ?>">español</a></li>
+							<li><a href="<?php echo get_site_url('en'); ?>" class="<?php echo ( 'en' ==  $arguments['lang'] ) ? 'active' : ''; ?>">english</a></li>
 						</ul>
 					</div>
 					<div class="headerBt">
@@ -72,6 +72,7 @@
 								<div class="col-md-10 inputBoxSearch">
 									<input type="text" id="q" name="q" value="<?php echo $arguments['query']; ?>" placeholder="Buscar Similares">
 									<input type="hidden" id="lang" name="lang" value="<?php echo $arguments['lang']; ?>">
+									<input type="hidden" id="theme" name="theme" value="<?php echo $arguments['theme']; ?>">
 									<input type="hidden" id="db" name="db" value="<?php echo $arguments['db']; ?>">
 									<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
 								</div>
@@ -97,34 +98,64 @@
 				</ol>
 			</nav>
 			<div class="row padding1" id="main_container">
-				<!-- Centro -->
-				<!-- Direita -->
 				<div class="col-md-3 d-print-none">
-					<div class="filter-db">
-						<div class="titleBox2" data-toggle="collapse" data-target="#bases">Base de Dados</div>
-						<select id="filter-db" name="filter-db" class="selectpicker" data-live-search="true" title="-">
-							<option value="">-</option>
+					<div class="select-theme">
+						<div class="titleBox2">Exibir como</div>
+						<select id="select-theme" name="select-theme" class="selectpicker" title="-">
+				            <?php foreach ($themes as $key => $value) : ?>
+				            <option value="<?php echo $key; ?>" <?php if ( $arguments['theme'] == $key ) echo 'selected'; ?>><?php echo $value; ?></option>
+				            <?php endforeach; ?>
+				        </select>
+					</div>
+					<div class="filter-db <?php if ( 'tabs' != $arguments['theme'] ) { echo 'hide'; } ?>">
+						<div class="titleBox2">Base de Dados</div>
+						<select id="filter-db" name="filter-db" class="selectpicker" data-live-search="true" data-actions-box="true" title="-" multiple <?php if ( 'list' == $arguments['theme'] ) echo 'disabled'; ?>>
 				            <?php foreach ($db_list as $key => $value) : $db_selected = explode(',', $arguments['db']); ?>
 				            <option value="<?php echo $key; ?>" <?php if ( in_array($key, $db_selected) ) echo 'selected'; ?>><?php echo $value; ?></option>
 				            <?php endforeach; ?>
 				        </select>
-						<!--
-						<div class="box2 collapse show" id="bases">
-					        <div class="boxCheck">
-								<div class="inputCheck1">
-									<input type="checkbox" id="check8" value="<?php echo $key; ?>" <?php if ( $key == $arguments['db'] ) echo 'selected'; ?>>
-								</div>
-								<label class="labelCheck1" for="check8"><?php echo $value; ?></label>
-							</div>
-					    </div>
-						-->
 					</div>
-					<br>
 					<div>
-						<button type="submit" class="btnBlueM" id="btnFiltroD">Filtrar</button>
+						<button type="submit" class="btnBlueM" id="btnFiltroD">Aplicar</button>
 					</div>
 				</div>
-				<?php if ( $similarDocs ) : ?>
+				<?php if ( 'tabs' == $arguments['theme'] ) : ?>
+				<div class="col-md-9 d-print-block">
+					<div class="box4">
+						<div class="titleArt"><b>Similares de: </b><?php echo $encode($arguments['query']); ?></div>
+					</div>
+					<div class="box4">
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<?php foreach ($databases as $key => $value) : reset($databases); ?>
+							<li class="nav-item">
+								<a class="nav-link <?php echo ( $key === key($databases) ) ? 'active' : ''; ?>" id="tab-<?php echo strtolower($key); ?>" data-toggle="tab" href="#<?php echo strtolower($key); ?>" role="tab" aria-controls="<?php echo strtolower($key); ?>" aria-selected="true"><?php echo $encode($value); ?></a>
+							</li>
+							<?php endforeach; ?>
+						</ul>
+						<br>
+						<div class="tab-content" id="myTabContent">
+							<?php foreach ($similarDB as $key => $value) : reset($similarDB); ?>
+							<div class="tab-pane fade <?php echo ( $key === key($similarDB) ) ? 'active show' : ''; ?>" id="<?php echo strtolower($key); ?>" role="tabpanel" aria-labelledby="tab-<?php echo strtolower($key); ?>">
+								<?php if ( $value ) : ?>
+									<?php foreach ($value as $similar) : ?>
+									<div>
+										<a href="<?php echo $encode($similar['url']); ?>" target="_blank"><?php echo $encode($similar['title']); ?></a><br>
+									</div>
+									<hr>
+									<?php endforeach; ?>
+								<?php else : ?>
+								<div class="text-center">Nenhum similar encontrado</div>
+								<?php endif; ?>
+							</div>
+							<?php endforeach; ?>
+						</div>
+						<br>
+						<div class="embed-button">
+							<button type="button" class="btnBlueM" data-toggle="modal" data-target="#modal">Embed Code</button>
+						</div>
+					</div>
+				</div>
+				<?php elseif ( $similarDocs ) : ?>
 				<div class="col-md-9 d-print-block">
 					<div class="box4">
 						<div class="titleArt"><b>Similares de: </b><?php echo $encode($arguments['query']); ?></div>
@@ -138,7 +169,7 @@
 						<hr>
 						<?php endforeach; ?>
 						<div class="embed-button">
-							<button type="button" class="btnBlueM" data-toggle="modal" data-target="#exampleModal">Embed Code</button>
+							<button type="button" class="btnBlueM" data-toggle="modal" data-target="#modal">Embed Code</button>
 						</div>
 						<!--
 						<nav aria-label="Navegação de página exemplo">
@@ -193,11 +224,11 @@
 		</span>
 	</div>
 	<!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Incorporar Documentos</h5>
+            <h5 class="modal-title" id="modalLabel">Incorporar Documentos</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -218,8 +249,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="embed-db">Database</label>
-                  <select id="embed-db" name="embed-db" class="selectpicker" data-live-search="true" title="-">
-                  	<option value="">-</option>
+                  <select id="embed-db" name="embed-db" class="selectpicker" data-live-search="true" data-actions-box="true" title="-" multiple>
                     <?php foreach ($db_list as $key => $value) : $db_selected = explode(',', $arguments['db']); ?>
                     <option value="<?php echo $key; ?>" <?php if ( in_array($key, $db_selected) ) echo 'selected'; ?>><?php echo $value; ?></option>
                     <?php endforeach; ?>
@@ -236,13 +266,29 @@
                   <input type="text" id="embed-height" name="embed-height" class="form-control" value="600">
                 </div>
               </div>
+              <div class="row">
+	            <div class="col-md-6 text-center">
+	              <label for="radio-theme-list" class="text-center">
+	                Exibir como lista <br>
+	                <img src="<?php echo RELATIVE_PATH; ?>/img/lista.jpg" alt="" width="100"> <br>
+	                <input type="radio" name="radio-theme" id="radio-theme-list" value="list" <?php if ( 'list' == $arguments['theme'] ) echo 'checked'; ?>>
+	              </label>
+	            </div>
+	            <div class="col-md-6 text-center">
+	              <label for="radio-theme-tabs" class="text-center">
+	                Exibir como tabs <br>
+	                <img src="<?php echo RELATIVE_PATH; ?>/img/tabs.jpg" alt="" width="100"> <br>
+	                <input type="radio" name="radio-theme" id="radio-theme-tabs" value="tabs" <?php if ( 'tabs' == $arguments['theme'] ) echo 'checked'; ?>>
+	              </label>
+	            </div>
+	          </div>
               <hr />
               <div class="form-group">
                 <label for="embed-code" class="col-form-label">Copie e cole este código no seu site.</label>
                 <input type="text" id="embed-code" name="embed-code" class="form-control" rows="5" autocomplete="off" autocapitalize="none" placeholder="" aria-describedby="" aria-labelledby="paper-input-label-2" value='<iframe width="400" height="300" src="<?php echo $embed_url; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' readonly>
               </div>
               <div class="form-group text-center">
-                <button type="button" id="embed-clipboard" class="btn btn-primary" onclick="copyHTML(); alert('Copied!');">Copy HTML</button>
+                <button type="button" id="embed-clipboard" class="btn btn-primary" onclick="copyHTML(); alert(document.getElementById('embed-code').value);">Copy HTML</button>
               </div>
             </form>
           </div>

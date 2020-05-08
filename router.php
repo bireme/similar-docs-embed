@@ -15,8 +15,9 @@ $routes = [];
  * @var array $templates
  */
 $templates = [
-	'main' => MAIN_TEMPLATE,
-	'embed' => EMBED_TEMPLATE
+	'main' => TEMPLATE_PATH.'/main.php',
+	'embed' => TEMPLATE_PATH.'/embed.php',
+	'embed-tabs' => TEMPLATE_PATH.'/embed-tabs.php'
 ];
 
 /**
@@ -49,7 +50,7 @@ function dispatch($action, array $arguments = array())
 /* Default Routes */
 route(RELATIVE_PATH, function (array $arguments = array()) {
 	global $templates;
-	$template = MAIN_TEMPLATE;
+	$template = TEMPLATE_PATH.'/main.php';
 	$output = $arguments['output'];
 
 	if ( array_key_exists($output, $templates) ) {

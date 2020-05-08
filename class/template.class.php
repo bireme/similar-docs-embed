@@ -37,14 +37,22 @@ class Template {
                                                    ? mb_substr($str, 0, mb_strrpos(mb_substr($str, 0, $length), ' ')) . '&nbsp;…'
                                                    : $str;};
 
-        $embed_url = ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http" ) . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]&output=embed";
         $similarDocs = self::getSimilarDocs($arguments['query'], $arguments['lang'], $arguments['db']);
+        $embed_url = get_site_url($arguments['lang'], true);
         $db_list = get_db_list();
-        
-        $similarDB = array();
-        if ( $db_list ) {
-            foreach ($db_list as $key => $value) {
-                $similarDB[$key] = self::getSimilarDocs($arguments['query'], $arguments['lang'], $key);
+        $themes = get_themes();
+
+        if ( 'embed-tabs' == $arguments['output'] || 'tabs' == $arguments['theme'] ) {
+            $similarDB = array();
+            $databases = explode(',', $arguments['db']);
+            $databases = array_flip($databases);
+            $databases = array_intersect_key($db_list, $databases);
+            $databases = ( $databases ) ? $databases : $db_list;
+
+            if ( $databases ) {
+                foreach ($databases as $key => $value) {
+                    $similarDB[$key] = self::getSimilarDocs($arguments['query'], $arguments['lang'], $key);
+                }
             }
         }
 
@@ -170,7 +178,7 @@ class Template {
 
                 $doc = array();
                 $doc['title'] = htmlspecialchars_decode($title);
-                $doc['url'] = $url.'?home_url='.get_site_url($lang, true).'&home_text=Similares';
+                $doc['url'] = $url.'?home_url='.get_site_url($lang, false, true).'&home_text=Similares';
                 $similars[] = $doc;
 
                 $string = $title;

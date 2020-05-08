@@ -166,6 +166,14 @@
 .box5{background: #ededed; border:1px solid #e4e4e4; padding: 20px 10px; font-size: 14px; margin-top: 20px;}
 .overflow1{height: 340px; overflow: auto; overflow-x:hidden}
 .overflow2{height: 80px; overflow: auto; overflow-x:hidden}
+.custom-embed-size {
+	display: none;
+}
+.select-theme,
+.filter-db {
+	margin-bottom: 2em;
+}
+.select-theme .bootstrap-select,
 .filter-db .bootstrap-select {
 	margin: 1em auto 0;
     display: block;
@@ -175,6 +183,9 @@
 }
 .db-tabs {
 	margin-bottom: 1em;
+}
+.hide {
+	display: none;
 }
 
 /******************** Breakpoints *******************/

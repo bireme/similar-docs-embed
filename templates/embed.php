@@ -14,40 +14,30 @@
 <body>
 	<div id="bvsFrameBoxTitle">
 		<div class="container">
-			<div id="bvsFrameLogo">
-				<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="">
-			</div>
 			<div id="bvsFrameTitle">
+				<div id="bvsFrameLogo">
+					<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="">
+				</div>
 				<b>Similares de: </b><?php echo $encode($arguments['query']); ?>
+				<div class="clear"></div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
 	<div id="bvsFrameList">
 		<div class="container">
-			<ul class="nav nav-tabs" id="myTab" role="tablist">
-				<?php foreach ($db_list as $key => $value) : reset($db_list); ?>
-				<li class="nav-item">
-					<a class="nav-link <?php echo ( $key === key($db_list) ) ? 'active' : ''; ?>" id="tab-<?php echo strtolower($key); ?>" data-toggle="tab" href="#<?php echo strtolower($key); ?>" role="tab" aria-controls="<?php echo strtolower($key); ?>" aria-selected="true"><?php echo $encode($value); ?></a>
-				</li>
-				<?php endforeach; ?>
-			</ul>
-			<div class="tab-content" id="myTabContent">
-				<?php foreach ($similarDB as $key => $value) : reset($similarDB); ?>
-				<div class="tab-pane fade <?php echo ( $key === key($similarDB) ) ? 'active show' : ''; ?>" id="<?php echo strtolower($key); ?>" role="tabpanel" aria-labelledby="tab-<?php echo strtolower($key); ?>">
-					<?php if ( $value ) : ?>
-						<?php foreach ($value as $similar) : ?>
-						<div>
-							<a href="<?php echo $encode($similar['url']); ?>" target="_blank"><?php echo $encode($similar['title']); ?></a><br>
-						</div>
-						<hr>
-						<?php endforeach; ?>
-					<?php else : ?>
-					<div class="text-center">Nenhum similar encontrado</div>
-					<?php endif; ?>
+			<?php if ( $similarDocs ) : ?>
+				<?php foreach ($similarDocs as $similar) : ?>
+				<div>
+					<a href="<?php echo $encode($similar['url']); ?>" target="_blank"><?php echo $encode($similar['title']); ?></a><br>
+					<!-- Base de Dados: <a href=""><b>LILACS</b></a> -->
 				</div>
+				<hr>
 				<?php endforeach; ?>
-			</div>
+			<?php else : ?>
+			<div class="text-center">Nenhum similar encontrado</div><hr>
+			<?php endif; ?>
+			<div class="text-center"><img src="http://logos.bireme.org/img/pt/h_bir_color.svg" alt="" class="img-fluid"></div>
 		</div>
 	</div>
 	<div id="bvsFrameShare">

@@ -14,11 +14,12 @@
 <body>
 	<div id="bvsFrameBoxTitle">
 		<div class="container">
-			<div id="bvsFrameLogo">
-				<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="">
-			</div>
 			<div id="bvsFrameTitle">
+				<div id="bvsFrameLogo">
+					<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="">
+				</div>
 				<b>Similares de: </b><?php echo $encode($arguments['query']); ?>
+				<div class="clear"></div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -52,6 +53,8 @@
 				</div>
 				<?php endforeach; ?>
 			</div>
+			<br>
+			<div class="text-center"><img src="http://logos.bireme.org/img/pt/h_bir_color.svg" alt="" class="img-fluid"></div>
 		</div>
 		<div id="bvsFrameShare">
 			<div class="container">

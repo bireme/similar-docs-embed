@@ -18,77 +18,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,900" rel="stylesheet">
 </head>
 <body>
-	<section id="barAcessibilidade">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6" id="acessibilidadeTutorial">
-					<a href="#main_container" tabindex="1" role="button">Conteúdo Principal <span class="hiddenMobile">1</span></a>
-					<a href="#pesquisa" tabindex="2" role="button">Busca <span class="hiddenMobile">2</span></a>
-					<a href="#footer" tabindex="3" role="button">Rodapé <span class="hiddenMobile">4</span></a>
-				</div>
-				<div class="col-md-6" id="acessibilidadeFontes">
-					<a id="fontPlus" href="#!" tabindex="5" role="button" aria-hidden="true">+A</a>
-					<a id="fontNormal" href="#!" tabindex="6" role="button" aria-hidden="true">A</a>
-					<a id="fontLess" href="#!" tabindex="7" role="button" aria-hidden="true">-A</a>
-					<a id="contraste" href="#!" tabindex="8" role="button" aria-hidden="true">
-						<i class="fas fa-adjust"></i> Alto Contraste</a>
-					<a href="https://politicas.bireme.org/accesibilidad/pt" role="button" id="accebilidade" tabindex="9" target="_blank"><i class="fas fa-wheelchair"></i></a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Topo -->
-	<header id="header" class="d-print-none">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div id="titleMain" class="float-left">
-						<div class="titleMain1">Portal Regional da BVS</div>
-						<div class="titleMain2">Informação e Conhecimento para a Saúde</div>
-					</div>
-					<div class="lang">
-						<ul>
-							<li><a href="<?php echo get_site_url('pt'); ?>" class="<?php echo ( 'pt' ==  $arguments['lang'] ) ? 'active' : ''; ?>">português</a></li>
-							<li><a href="<?php echo get_site_url('es'); ?>" class="<?php echo ( 'es' ==  $arguments['lang'] ) ? 'active' : ''; ?>">español</a></li>
-							<li><a href="<?php echo get_site_url('en'); ?>" class="<?php echo ( 'en' ==  $arguments['lang'] ) ? 'active' : ''; ?>">english</a></li>
-						</ul>
-					</div>
-					<div class="headerBt">
-						<!-- <a href="" class="btnBlue">Descritor de Assunto</a> -->
-						<!-- <a href="searchadvanced.php" class="btnBlue">Busca Avançada</a> -->
-					</div>
-					<div class="headerSearch" >
-						<form action="">
-							<div class="row">
-								<!-- <div class="col-md-4 selectBoxSearch">
-									<select class="formSelect">
-										<option>Título, resumo, assunto</option>
-										<option>Título</option>
-										<option>Autor</option>
-										<option>Descritor de assunto</option>
-										<option>Resumo</option>
-									</select>
-								</div> -->
-								<div class="col-md-10 inputBoxSearch">
-									<input type="text" id="q" name="q" value="<?php echo $arguments['query']; ?>" placeholder="Buscar Similares">
-									<input type="hidden" id="lang" name="lang" value="<?php echo $arguments['lang']; ?>">
-									<input type="hidden" id="theme" name="theme" value="<?php echo $arguments['theme']; ?>">
-									<input type="hidden" id="db" name="db" value="<?php echo $arguments['db']; ?>">
-									<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
-								</div>
-								<div class="col-md-2 btnBoxSearch">
-									<button type="submit">
-										<i class="fas fa-search"></i>
-										<span class="textBTSearch"> BUSCAR</span>
-									</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+
+	<?php include 'topAcessibility.php'; ?>
+	<?php include 'header.php'; ?>
+
 	<section>
 		<div class="container">
 			<nav>
@@ -171,21 +104,6 @@
 						<div class="embed-button">
 							<button type="button" class="btnBlueM" data-toggle="modal" data-target="#modal">Embed Code</button>
 						</div>
-						<!--
-						<nav aria-label="Navegação de página exemplo">
-							<ul class="pagination justify-content-center">
-								<li class="page-item disabled">
-									<a class="page-link" href="#" tabindex="-1">Anterior</a>
-								</li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item">
-									<a class="page-link" href="#">Próximo</a>
-								</li>
-							</ul>
-						</nav>
-						-->
 					</div>
 				</div>
 				<?php else : ?>
@@ -198,32 +116,9 @@
 			</div>
 		</div>
 	</section>
-	<!-- Rodapé -->
-	<footer id="footer" class="padding1 d-print-none">
-		<div class="container">
-			<hr><br>
-			<div class="row">
-				<div class="col-md-4">
-					Powered by iAHx-2.10-117 Portal Regional da BVS
-				</div>
-				<div class="col-md-4 text-center">
-					<a href="">Enviar um comentário</a> |
-					<a href="">Comunicar um erro</a>
-				</div>
-				<div class="col-md-4 text-right">
-					<a href="">Termos e condições de uso</a> |
-					<a href="">Políticas de privacidade</a>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- seta up -->
-	<div id="to-top" class="to-top d-print-none">
-		<span class="float-left">
-			<i class="fas fa-arrow-up"></i>
-		</span>
-	</div>
-	<!-- Modal -->
+
+	<?php include 'footer.php' ?>
+
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

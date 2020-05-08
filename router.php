@@ -15,8 +15,9 @@ $routes = [];
  * @var array $templates
  */
 $templates = [
-	'main' => TEMPLATE_PATH.'/main.php',
-	'embed' => TEMPLATE_PATH.'/embed.php',
+	'main'       => TEMPLATE_PATH.'/main.php',
+	'similar'    => TEMPLATE_PATH.'/similar.php',
+	'embed'      => TEMPLATE_PATH.'/embed.php',
 	'embed-tabs' => TEMPLATE_PATH.'/embed-tabs.php'
 ];
 

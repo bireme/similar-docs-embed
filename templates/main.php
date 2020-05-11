@@ -40,7 +40,7 @@
 				            <?php endforeach; ?>
 				        </select>
 					</div>
-					<div class="filter-db <?php if ( 'tabs' != $arguments['theme'] ) { echo 'hide'; } ?>">
+					<div class="filter-db <?php if ( 'list' == $arguments['theme'] ) { echo 'hide'; } ?>">
 						<div class="titleBox2">Base de Dados</div>
 						<select id="filter-db" name="filter-db" class="selectpicker" data-live-search="true" data-actions-box="true" title="-" multiple <?php if ( 'list' == $arguments['theme'] ) echo 'disabled'; ?>>
 				            <?php foreach ($db_list as $key => $value) : $db_selected = explode(',', $arguments['db']); ?>
@@ -150,7 +150,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="embed-db">Database</label>
-                  <select id="embed-db" name="embed-db" class="selectpicker" data-live-search="true" data-actions-box="true" title="-" multiple>
+                  <select id="embed-db" name="embed-db" class="selectpicker" data-live-search="true" data-actions-box="true" title="-" multiple <?php if ( 'list' == $arguments['theme'] ) echo 'disabled'; ?>>
                     <?php foreach ($db_list as $key => $value) : $db_selected = explode(',', $arguments['db']); ?>
                     <option value="<?php echo $key; ?>" <?php if ( in_array($key, $db_selected) ) echo 'selected'; ?>><?php echo $value; ?></option>
                     <?php endforeach; ?>

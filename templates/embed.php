@@ -18,7 +18,11 @@
 				<div id="bvsFrameLogo">
 					<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="">
 				</div>
+				<?php if ( $arguments['title'] ) : ?>
+				<b><?php echo $arguments['title']; ?></b>
+				<?php else : ?>
 				<b>Similares de: </b><?php echo $encode($arguments['query']); ?>
+				<?php endif; ?>
 				<div class="clear"></div>
 			</div>
 			<div class="clearfix"></div>

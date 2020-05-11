@@ -71,6 +71,6 @@
 	#acessibilidadeFontes{text-align: center;}
 	.hiddenMobile{display: none;}
 	#barAcessibilidade{text-align: center;}
-	#speakBtn{left: 30px;}
-	#q{padding-left: 40px;}
+	#speakBtn{left: 30px; margin-left:0}
+	#q{padding-left: 40px; padding-right:10px}
 }

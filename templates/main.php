@@ -133,6 +133,12 @@
               <input type="hidden" id="lang" name="lang" value="<?php echo $arguments['lang']; ?>">
               <input type="hidden" id="query" name="query" value="<?php echo $arguments['query']; ?>">
               <div class="form-row">
+	            <div class="form-group col-md-12">
+	              <label for="radio-theme-list" class="text-center">Título</label>
+                  <input type="text" id="embed-title" name="embed-title" class="form-control" placeholder="Similares de: [...]" value="">
+	            </div>
+	          </div>
+              <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="embed-size">Size</label>
                   <select id="embed-size" name="embed-size" class="selectpicker">

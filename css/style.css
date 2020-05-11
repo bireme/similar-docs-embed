@@ -202,7 +202,7 @@
 	#header{text-align: center;}
 	#titleMain{display: block; float: none!important;}
 	.lang{text-align: center; margin-top: 20px;}
-		.lang ul{padding: 0;}
+	.lang ul{padding: 0;}
 	.headerBt{margin-top: 20px; text-align: center;}
 	.selectBoxSearch{ border: 0;}
 	.inputBoxSearch input{border-top: 1px solid #ddd;}
@@ -220,7 +220,7 @@
 		display: block; padding: 10px; background:#30348d; color: #fff;
 		text-align: center; margin-bottom: 20px; cursor: pointer;
 	}
-	#btnFiltroD, .btnFilter{ display: none;}
+	#btnFiltroD, .btnFilter{margin-bottom: 10px; width: 100%;}
 	.close{display: none!important;}
 	.open{display: block!important;}
 	#aplicarFiltro{

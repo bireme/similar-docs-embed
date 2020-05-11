@@ -49,7 +49,7 @@ toTop.click(function() {
     }, 800);
     return false;
 });
-
+/*
 // scrool botao filtro
 var btFiltro = $('#btnFiltroD');
 $(window).scroll(function() {
@@ -63,3 +63,4 @@ $(window).scroll(function() {
         });
     }
 });
+*/

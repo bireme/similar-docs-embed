@@ -32,12 +32,14 @@ $(function() {
 	$('#embed-db').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
 		var val   = $(this).val(),
 			code  = $('#embed-code').val(),
+			title = encodeURIComponent($('#embed-title').val()),
 			href  = $(location).attr('href').split('?')[0];
 
-		if ( val )
-			href = href+'?q='+query+'&lang='+lang+'&db='+val+'&output=embed-tabs';
-		else
-			href = href+'?q='+query+'&lang='+lang+'&output=embed-tabs';
+		if ( val ) {
+			href = href+'?q='+query+'&lang='+lang+'&title='+title+'&db='+val+'&output=embed-tabs';
+		} else {
+			href = href+'?q='+query+'&lang='+lang+'&title='+title+'&output=embed-tabs';
+		}
 		
 	  	code = code.replace(/src\s*=\s*\\*"(.+?)\\*"/g, 'src="'+href+'"');
 	  	$('#embed-code').val(code);
@@ -55,6 +57,23 @@ $(function() {
 		}
 
 		window.location = href;
+	});
+
+	$('#embed-title').on('blur', function (e) {
+		var val   = encodeURIComponent($(this).val()),
+			db    = $('#embed-db').val(),
+			theme = $('input[type=radio][name=radio-theme]:checked').val(),
+			code  = $('#embed-code').val(),
+			href  = $(location).attr('href').split('?')[0];
+
+		if ( 'tabs' == theme ) {
+			href = href+'?q='+query+'&lang='+lang+'&title='+val+'&db='+db+'&output=embed-tabs';
+		} else {
+			href = href+'?q='+query+'&lang='+lang+'&title='+val+'&output=embed';
+		}
+		
+	  	code = code.replace(/src\s*=\s*\\*"(.+?)\\*"/g, 'src="'+href+'"');
+	  	$('#embed-code').val(code);
 	});
 
 	$('#embed-width, #embed-height').on('blur', function (e) {
@@ -82,16 +101,17 @@ $(function() {
 	});
 
 	$('input[type=radio][name=radio-theme]').on('change', function(e) {
-		var val  = $(this).val(),
-			db   = $('#embed-db').val(),
-			code = $('#embed-code').val(),
-			href = $(location).attr('href').split('?')[0];
+		var val   = $(this).val(),
+			db    = $('#embed-db').val(),
+			code  = $('#embed-code').val(),
+			title = encodeURIComponent($('#embed-title').val()),
+			href  = $(location).attr('href').split('?')[0];
 
 		if ( 'tabs' == val ) {
-			href = href+'?q='+query+'&lang='+lang+'&db='+db+'&output=embed-tabs';
+			href = href+'?q='+query+'&lang='+lang+'&title='+title+'&db='+db+'&output=embed-tabs';
 			$('#embed-db').attr('disabled', false);
 		} else {
-			href = href+'?q='+query+'&lang='+lang+'&output=embed';
+			href = href+'?q='+query+'&lang='+lang+'&title='+title+'&output=embed';
 			$('#embed-db').attr('disabled', true);
 		}
 
@@ -109,11 +129,22 @@ function copyHTML() {
     document.execCommand("copy");
 }
 
-function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
+function getUrlParameter(sParam, sUrl) {
+    var sPageURL,
+        sURLVariables,
         sParameterName,
+        parser,
         i;
+
+    if ( sUrl === undefined ) {
+    	sPageURL = window.location.search.substring(1);
+        sURLVariables = sPageURL.split('&');
+    } else {
+    	parser = document.createElement('a');
+		parser.href = sUrl;
+		sPageURL = parser.search.substring(1);
+        sURLVariables = sPageURL.split('&');
+    }
 
     for (i = 0; i < sURLVariables.length; i++) {
         sParameterName = sURLVariables[i].split('=');

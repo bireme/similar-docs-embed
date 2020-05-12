@@ -189,7 +189,7 @@
                 <input type="text" id="embed-code" name="embed-code" class="form-control" rows="5" autocomplete="off" autocapitalize="none" placeholder="" aria-describedby="" aria-labelledby="paper-input-label-2" value='<iframe width="400" height="300" src="<?php echo $embed_url; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' readonly>
               </div>
               <div class="form-group text-center">
-                <button type="button" id="embed-clipboard" class="btn btn-primary" onclick="copyHTML(); alert('Copied!');">Copy HTML</button>
+                <button type="button" id="embed-clipboard" class="btn btn-primary" onclick="copyHTML();">Copy HTML</button>
               </div>
             </form>
           </div>

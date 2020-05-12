@@ -127,6 +127,7 @@ function copyHTML() {
     copyText.select();
     copyText.setSelectionRange(0, 99999);
     document.execCommand("copy");
+    alert('Copied!');
 }
 
 function getUrlParameter(sParam, sUrl) {

@@ -19,7 +19,7 @@
 					<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="">
 				</div>
 				<?php if ( $arguments['title'] ) : ?>
-				<b><?php echo $arguments['title']; ?></b>
+				<b><?php echo shortened_string($arguments['title'], false); ?></b>
 				<?php else : ?>
 				<b>Similares de: </b><?php echo $encode($arguments['query']); ?>
 				<?php endif; ?>
@@ -89,6 +89,12 @@
 
 		$("#btShare").click(function(){
 			$("#bvsFrameBoxShare").show(300);
+		});
+
+		$('span.show-all').on('click', function(e){
+		    e.preventDefault();
+		    $(this).hide();
+		    $(this).next().show();
 		});
 	</script>
 

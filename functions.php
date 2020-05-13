@@ -42,4 +42,21 @@ function get_site_url($lang='pt', $embed=false, $skip=false) {
 	return $url;
 }
 
+function shortened_string($string, $crop=true) {
+    $string = htmlspecialchars_decode($string);
+
+    if ( strlen($string) > 200 ) {
+        $start = substr($string, 0, 200);
+        $end = substr($string, 200);
+
+        if ($crop) {
+            $string = $start . ' [...]';
+        } else {
+            return $start.'<span class="show-all"> [...]</span><span class="short-string">'.$end.'</span>';
+        }
+    }
+
+    return $string;
+}
+
 ?>

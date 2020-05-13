@@ -82,3 +82,10 @@ body{
 	font-size: 14px!important;
 
 }
+span.short-string {
+    display: none;
+}
+span.show-all {
+	color: #0000ff;
+	cursor: pointer;
+}

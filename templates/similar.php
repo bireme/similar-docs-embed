@@ -28,7 +28,11 @@
 				<?php if ( 'tabs' == $arguments['theme'] ) : ?>
 				<div class="col-md-12 d-print-block">
 					<div class="box4">
+						<?php if ( $arguments['title'] ) : ?>
+						<div class="titleArt text-center"><?php echo $arguments['title']; ?></div>
+						<?php else : ?>
 						<div class="titleArt"><b>Similares de: </b><?php echo $encode($arguments['query']); ?></div>
+						<?php endif; ?>
 					</div>
 					<div class="box4">
 						<ul class="nav nav-tabs" id="myTab" role="tablist">

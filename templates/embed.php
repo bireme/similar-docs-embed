@@ -46,7 +46,7 @@
 	</div>
 	<div id="bvsFrameShare">
 		<div class="container">
-			<a href="<?php echo get_site_url($arguments['lang']); ?>&output=similar" target="_blank"><img src="img/full.svg" alt=""></a>
+			<a href="<?php echo get_site_url($arguments['lang']); ?>&output=similar&title=<?php echo $arguments['title']; ?>" target="_blank"><img src="img/full.svg" alt=""></a>
 			<a href="#" id="btShare"><img src="img/share.svg" alt=""></a>
 		</div>
 	</div>

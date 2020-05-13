@@ -18,7 +18,11 @@
 				<div id="bvsFrameLogo">
 					<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="">
 				</div>
+				<?php if ( $arguments['title'] ) : ?>
+				<b><?php echo $arguments['title']; ?></b>
+				<?php else : ?>
 				<b>Similares de: </b><?php echo $encode($arguments['query']); ?>
+				<?php endif; ?>
 				<div class="clear"></div>
 			</div>
 			<div class="clearfix"></div>
@@ -58,7 +62,7 @@
 		</div>
 		<div id="bvsFrameShare">
 			<div class="container">
-			<a href="<?php echo get_site_url($arguments['lang']); ?>" target="_blank"><img src="img/full.svg" alt=""></a>
+				<a href="<?php echo get_site_url($arguments['lang']); ?>&output=similar&title=<?php echo $arguments['title']; ?>" target="_blank"><img src="img/full.svg" alt=""></a>
 				<a href="#" id="btShare"><img src="img/share.svg" alt=""></a>
 			</div>
 		</div>

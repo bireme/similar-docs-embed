@@ -178,7 +178,7 @@ class Template {
 
                 $doc = array();
                 $doc['title'] = htmlspecialchars_decode($title);
-                $doc['url'] = $url.'?home_url='.get_site_url($lang, false, true).'&home_text=Similares';
+                $doc['url'] = $url.'?src=similar';
                 $similars[] = $doc;
 
                 $string = $title;

@@ -49,6 +49,7 @@
 						<?php endforeach; ?>
 					<?php else : ?>
 					<div class="text-center">Nenhum similar encontrado</div>
+					<hr>
 					<?php endif; ?>
 				</div>
 				<?php endforeach; ?>

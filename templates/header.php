@@ -1,7 +1,10 @@
 <header id="header" class="d-print-none">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-2 col-lg-1" id="logo">
+				<a href="index.php"><img src="img/BVS.svg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-md-10 col-lg-11">
 				<div id="titleMain" class="float-left">
 					<div class="titleMain1">Portal Regional da BVS</div>
 					<div class="titleMain2">Informação e Conhecimento para a Saúde</div>
@@ -13,8 +16,10 @@
 						<li><a href="<?php echo get_site_url('en'); ?>" class="<?php echo ( 'en' ==  $arguments['lang'] ) ? 'active' : ''; ?>">english</a></li>
 					</ul>
 				</div>
-				<?php if ( 'similar' != $arguments['output'] ) : ?>
-				<div class="clearfix"></div><br>
+			</div>
+			<?php if ( 'similar' != $arguments['output'] ) : ?>
+			<div class="col-md-12">
+				<br>
 				<div class="headerSearch">
 					<form action="">
 						<div class="row">
@@ -34,8 +39,8 @@
 						</div>
 					</form>
 				</div>
-				<?php endif; ?>
 			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </header>

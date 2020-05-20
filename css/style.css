@@ -76,7 +76,7 @@
 	background: #30348d; padding: 10px; border-radius: 3px;
 	color: #fff; margin-bottom: 5px; cursor: pointer; border: 0;
 }
-#btnFiltroD{position: sticky; top: 0; z-index: 99;}
+#btnFiltroD{margin-bottom: 2em; position: sticky; top: 0; z-index: 99;}
 .btnFilter:hover{background: #464bbb;}
 .selectOrder{width: 100%; padding: 5px; font-size: 14px; border: 1px solid #ddd;}
 .formControl{
@@ -186,6 +186,11 @@
 }
 .hide {
 	display: none;
+}
+#logoSimilar{
+	background: #123;
+	margin-top: 15px;
+	padding: 10px;
 }
 
 /******************** Breakpoints *******************/

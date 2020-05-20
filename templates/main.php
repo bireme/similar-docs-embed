@@ -114,6 +114,12 @@
 				</div>
 				<?php endif; ?>
 			</div>
+			<div class="text-center box4" style="margin-top: -30px">
+				<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
+			</div>
+			<div class="text-center" id="logoSimilar">
+				<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
+			</div>
 		</div>
 	</section>
 

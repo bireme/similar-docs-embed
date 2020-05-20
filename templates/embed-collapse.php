@@ -16,7 +16,7 @@
 		<div class="container">
 			<div id="bvsFrameTitle">
 				<div id="bvsFrameLogo">
-					<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="">
+					<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/bvs_color.svg" alt="">
 				</div>
 				<?php if ( $arguments['title'] ) : ?>
 				<b><?php echo shortened_string($arguments['title'], false); ?></b>
@@ -58,7 +58,12 @@
 				<?php endforeach; ?>
 			</div>
 			<br>
-			<div class="text-center"><img src="http://logos.bireme.org/img/pt/h_bir_color.svg" alt="" class="img-fluid"></div>
+			<div class="text-center">
+				<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
+			</div>
+			<div class="text-center" id="logoSimilar">
+				<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
+			</div>
 		</div>
 		<div id="bvsFrameShare">
 			<div class="container">

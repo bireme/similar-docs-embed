@@ -89,3 +89,8 @@ span.show-all {
 	color: #0000ff;
 	cursor: pointer;
 }
+#logoSimilar{
+	background: #123;
+	margin-top: 15px;
+	padding: 10px;
+}

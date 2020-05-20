@@ -59,6 +59,13 @@
 							</div>
 							<?php endforeach; ?>
 						</div>
+						<br>
+						<div class="text-center">
+							<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
+						</div>
+					</div>
+					<div class="text-center" id="logoSimilar">
+						<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
 					</div>
 				</div>
 				<?php elseif ( $similarDocs ) : ?>
@@ -74,12 +81,26 @@
 						</div>
 						<hr>
 						<?php endforeach; ?>
+						<br>
+						<div class="text-center">
+							<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
+						</div>
+					</div>
+					<div class="text-center" id="logoSimilar">
+						<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
 					</div>
 				</div>
 				<?php else : ?>
 				<div class="col-md-12 d-print-block">
 					<div class="box4">
 						<div class="titleArt text-center">Nenhum similar encontrado</div>
+						<br>
+						<div class="text-center">
+							<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
+						</div>
+					</div>
+					<div class="text-center" id="logoSimilar">
+						<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
 					</div>
 				</div>
 				<?php endif; ?>

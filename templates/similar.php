@@ -72,7 +72,7 @@
 				<div class="col-md-12 d-print-block">
 					<div class="box4">
 						<?php if ( $arguments['title'] ) : ?>
-						<div class="titleArt text-center"><?php echo $encode($arguments['title']); ?></div>
+						<div class="titleArt text-center"><?php echo shortened_string($encode($arguments['title']), false); ?></div>
 						<?php else : ?>
 						<div class="titleArt"><b>Similares de: </b><?php echo $encode($arguments['query']); ?></div>
 						<?php endif; ?>
@@ -124,6 +124,13 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 	<script src="<?php echo RELATIVE_PATH; ?>/js/main.js"></script>
 	<script src="<?php echo RELATIVE_PATH; ?>/js/scripts.js"></script>
+	<script>
+		$('span.show-all').on('click', function(e){
+		    e.preventDefault();
+		    $(this).hide();
+		    $(this).next().show();
+		});
+	</script>
 
 </body>
 </html>

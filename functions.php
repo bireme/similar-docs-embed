@@ -45,9 +45,9 @@ function get_site_url($lang='pt', $embed=false, $skip=false) {
 function shortened_string($string, $crop=true) {
     $string = htmlspecialchars_decode($string);
 
-    if ( strlen($string) > 200 ) {
-        $start = substr($string, 0, 200);
-        $end = substr($string, 200);
+    if ( strlen($string) > 100 ) {
+        $start = substr($string, 0, 100);
+        $end = substr($string, 100);
 
         if ($crop) {
             $string = $start . ' [...]';

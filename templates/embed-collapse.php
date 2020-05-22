@@ -19,9 +19,9 @@
 					<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/bvs_color.svg" alt="">
 				</div>
 				<?php if ( $arguments['title'] ) : ?>
-				<b><?php echo shortened_string($arguments['title'], false); ?></b>
+				<b><?php echo shortened_string($encode($arguments['title']), false); ?></b>
 				<?php else : ?>
-				<b>Similares de: </b><?php echo $encode($arguments['query']); ?>
+				<b>Similares de: </b><?php echo shortened_string($encode($arguments['query']), false); ?>
 				<?php endif; ?>
 				<div class="clear"></div>
 			</div>

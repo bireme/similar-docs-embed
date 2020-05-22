@@ -31,7 +31,7 @@
 						<?php if ( $arguments['title'] ) : ?>
 						<div class="titleArt text-center"><?php echo $encode($arguments['title']); ?></div>
 						<?php else : ?>
-						<div class="titleArt"><b>Similares de: </b><?php echo $encode($arguments['query']); ?></div>
+						<div class="titleArt"><b>Similares de: </b><?php echo shortened_string($encode($arguments['query']), false); ?></div>
 						<?php endif; ?>
 					</div>
 					<div class="box4">
@@ -74,7 +74,7 @@
 						<?php if ( $arguments['title'] ) : ?>
 						<div class="titleArt text-center"><?php echo shortened_string($encode($arguments['title']), false); ?></div>
 						<?php else : ?>
-						<div class="titleArt"><b>Similares de: </b><?php echo $encode($arguments['query']); ?></div>
+						<div class="titleArt"><b>Similares de: </b><?php echo shortened_string($encode($arguments['query']), false); ?></div>
 						<?php endif; ?>
 					</div>
 					<div class="box4">

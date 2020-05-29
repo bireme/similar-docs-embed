@@ -34,7 +34,7 @@
 							<div class="col-md-2 btnBoxSearch">
 								<button type="submit">
 									<i class="fas fa-search"></i>
-									<span class="textBTSearch"> <?php echo $texts['SEARCH']; ?></span>
+									<span class="textBTSearch"> <?php echo $texts['TO_SEARCH']; ?></span>
 								</button>
 							</div>
 						</div>

@@ -29,8 +29,8 @@
 					<div class="select-theme">
 						<div class="titleBox2"><?php echo $texts['DISPLAY_AS']; ?></div>
 						<select id="select-theme" name="select-theme" class="selectpicker" title="-">
-				            <?php foreach ($themes as $key => $value) : ?>
-				            <option value="<?php echo $key; ?>" <?php if ( $arguments['theme'] == $key ) echo 'selected'; ?>><?php echo $value; ?></option>
+				            <?php foreach ($themes as $key => $value) : $label = strtoupper($value); ?>
+				            <option value="<?php echo $key; ?>" <?php if ( $arguments['theme'] == $key ) echo 'selected'; ?>><?php echo $texts[$label]; ?></option>
 				            <?php endforeach; ?>
 				        </select>
 					</div>

@@ -4,7 +4,7 @@
 			<div class="col-md-6" id="acessibilidadeTutorial">
 				<a href="#main_container" tabindex="1" role="button"><?php echo $texts['MAIN_CONTENT']; ?> <span class="hiddenMobile">1</span></a>
 				<a href="#pesquisa" tabindex="2" role="button"><?php echo $texts['SEARCH']; ?> <span class="hiddenMobile">2</span></a>
-				<a href="#footer" tabindex="3" role="button"><?php echo $texts['FOOTER']; ?> <span class="hiddenMobile">4</span></a>
+				<a href="#footer" tabindex="3" role="button"><?php echo $texts['FOOTER']; ?> <span class="hiddenMobile">3</span></a>
 			</div>
 			<div class="col-md-6" id="acessibilidadeFontes">
 				<a id="fontPlus" href="#!" tabindex="5" role="button" aria-hidden="true">+A</a>

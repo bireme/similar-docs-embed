@@ -37,6 +37,7 @@ class Template {
                                                    ? mb_substr($str, 0, mb_strrpos(mb_substr($str, 0, $length), ' ')) . '&nbsp;…'
                                                    : $str;};
 
+        $texts = parse_ini_file("ini/".$arguments['lang']."/texts.ini");
         $similarDocs = self::getSimilarDocs($arguments['query'], $arguments['lang'], $arguments['db']);
         $embed_url = get_site_url($arguments['lang'], true);
         $db_list = get_db_list();

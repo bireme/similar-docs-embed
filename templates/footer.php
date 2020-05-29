@@ -2,16 +2,9 @@
 	<div class="container">
 		<hr><br>
 		<div class="row">
-			<div class="col-md-4">
-				Powered by iAHx-2.10-117 Portal Regional da BVS
-			</div>
-			<div class="col-md-4 text-center">
-				<a href="">Enviar um comentário</a> |
-				<a href="">Comunicar um erro</a>
-			</div>
-			<div class="col-md-4 text-right">
-				<a href="">Termos e condições de uso</a> |
-				<a href="">Políticas de privacidade</a>
+			<div class="col-md-12 text-center">
+				<a href="http://politicas.bireme.org/terminos/<?php echo $arguments['lang']; ?>" target="_blank"><?php echo $texts['TERMS']; ?></a> |
+				<a href="http://politicas.bireme.org/privacidad/<?php echo $arguments['lang']; ?>" target="_blank"><?php echo $texts['POLICY']; ?></a>
 			</div>
 		</div>
 	</div>

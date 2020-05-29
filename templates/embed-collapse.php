@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="<?php echo RELATIVE_PATH; ?>/img/favicon.ico">
-	<title>Portal Regional da BVS - Similares</title>
+	<title><?php echo $texts['SUBTITLE']; ?> | <?php echo $texts['SITE_TITLE']; ?></title>
 	<link rel="stylesheet" href="<?php echo RELATIVE_PATH; ?>/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo RELATIVE_PATH; ?>/css/style-embed.css">
 </head>
@@ -21,7 +21,7 @@
 				<?php if ( $arguments['title'] ) : ?>
 				<b><?php echo shortened_string($encode($arguments['title']), false); ?></b>
 				<?php else : ?>
-				<b>Similares de: </b><?php echo shortened_string($encode($arguments['query']), false); ?>
+				<b><?php echo $texts['SIMILAR_TO']; ?>: </b><?php echo shortened_string($encode($arguments['query']), false); ?>
 				<?php endif; ?>
 				<div class="clear"></div>
 			</div>
@@ -50,7 +50,7 @@
 								<hr>
 								<?php endforeach; ?>
 							<?php else : ?>
-							<div class="text-center">Nenhum similar encontrado</div>
+							<div class="text-center"><?php echo $texts['NO_SIMILAR_FOUND']; ?></div>
 							<?php endif; ?>
 						</div>
 					</div>
@@ -73,7 +73,7 @@
 		</div>
 		<div id="bvsFrameBoxShare">
 			<div id="bvsFrameBoxContent">
-				<p class="text-center"><b>Compartilhar</b></p>
+				<p class="text-center"><b><?php echo $texts['SHARE']; ?></b></p>
 				<!--
 				<div class="text-center">
 					<a href="" class="bvsFrameImg"><img src="img/link.svg" width="50" alt=""></a>
@@ -86,7 +86,7 @@
 	              var addthis_config = addthis_config||{};
 
 	              var addthis_share = addthis_share||{};
-	                  addthis_share.title = "Similares";
+	                  addthis_share.title = "<?php echo $texts['SIMILAR']; ?>";
 	                  addthis_share.url = "<?php echo get_site_url($arguments['lang']); ?>";
 	            </script>
 	            <div class="addthis_toolbox addthis_60x60_style" addthis:url="<?php echo get_site_url($arguments['lang']); ?>">

@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="<?php echo RELATIVE_PATH; ?>/img/favicon.ico">
-	<title>Portal Regional da BVS</title>
+	<title><?php echo $texts['SUBTITLE']; ?> | <?php echo $texts['SITE_TITLE']; ?></title>
 	<link rel="stylesheet" href="<?php echo RELATIVE_PATH; ?>/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 	<link rel="stylesheet" href="<?php echo RELATIVE_PATH; ?>/css/style.css">
@@ -24,17 +24,17 @@
 
 	<section>
 		<div class="container">
-			<div class="row padding1" id="main_container">
+			<div class="row" id="main_container">
 				<?php if ( 'tabs' == $arguments['theme'] ) : ?>
 				<div class="col-md-12 d-print-block">
-					<div class="box4">
+					<div class="box1">
 						<?php if ( $arguments['title'] ) : ?>
 						<div class="titleArt text-center"><?php echo $encode($arguments['title']); ?></div>
 						<?php else : ?>
 						<div class="titleArt"><b>Similares de: </b><?php echo shortened_string($encode($arguments['query']), false); ?></div>
 						<?php endif; ?>
 					</div>
-					<div class="box4">
+					<div class="box1">
 						<ul class="nav nav-tabs" id="myTab" role="tablist">
 							<?php foreach ($databases as $key => $value) : reset($databases); ?>
 							<li class="nav-item">
@@ -51,60 +51,39 @@
 									<div>
 										<a href="<?php echo $encode($similar['url']); ?>" target="_blank"><?php echo $encode($similar['title']); ?></a><br>
 									</div>
-									<hr>
+									<hr />
 									<?php endforeach; ?>
 								<?php else : ?>
-								<div class="text-center">Nenhum similar encontrado</div>
+								<div class="text-center"><?php echo $texts['NO_SIMILAR_FOUND']; ?></div>
 								<?php endif; ?>
 							</div>
 							<?php endforeach; ?>
 						</div>
-						<br>
-						<div class="text-center">
-							<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
-						</div>
-					</div>
-					<div class="text-center" id="logoSimilar">
-						<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
 					</div>
 				</div>
 				<?php elseif ( $similarDocs ) : ?>
 				<div class="col-md-12 d-print-block">
-					<div class="box4">
+					<div class="box1">
 						<?php if ( $arguments['title'] ) : ?>
 						<div class="titleArt text-center"><?php echo shortened_string($encode($arguments['title']), false); ?></div>
 						<?php else : ?>
 						<div class="titleArt"><b>Similares de: </b><?php echo shortened_string($encode($arguments['query']), false); ?></div>
 						<?php endif; ?>
 					</div>
-					<div class="box4">
+					<div class="box1">
 						<?php foreach ($similarDocs as $similar) : ?>
 						<div>
 							<a href="<?php echo $encode($similar['url']); ?>" target="_blank"><?php echo $encode($similar['title']); ?></a><br>
 							<!-- Base de Dados: <a href=""><b>LILACS</b></a> -->
 						</div>
-						<hr>
+						<hr />
 						<?php endforeach; ?>
-						<br>
-						<div class="text-center">
-							<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
-						</div>
-					</div>
-					<div class="text-center" id="logoSimilar">
-						<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
 					</div>
 				</div>
 				<?php else : ?>
 				<div class="col-md-12 d-print-block">
-					<div class="box4">
-						<div class="titleArt text-center">Nenhum similar encontrado</div>
-						<br>
-						<div class="text-center">
-							<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
-						</div>
-					</div>
-					<div class="text-center" id="logoSimilar">
-						<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
+					<div class="box1">
+						<div class="titleArt text-center"><?php echo $texts['NO_SIMILAR_FOUND']; ?></div>
 					</div>
 				</div>
 				<?php endif; ?>

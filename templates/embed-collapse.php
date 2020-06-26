@@ -12,20 +12,23 @@
 	<link rel="stylesheet" href="<?php echo RELATIVE_PATH; ?>/css/style-embed.css">
 </head>
 <body>
+	<div id="similarinfo">
+		<img src="img/logoSimilarEmbed.png" alt="">
+	</div>
 	<div id="bvsFrameBoxTitle">
 		<div class="container">
-			<div id="bvsFrameTitle">
-				<div id="bvsFrameLogo">
-					<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/bvs_color.svg" alt="">
-				</div>
-				<?php if ( $arguments['title'] ) : ?>
-				<b><?php echo shortened_string($encode($arguments['title']), false); ?></b>
-				<?php else : ?>
-				<b><?php echo $texts['SIMILAR_TO']; ?>: </b><?php echo shortened_string($encode($arguments['query']), false); ?>
-				<?php endif; ?>
-				<div class="clear"></div>
+			<div class="row">
+			<div class="col-3 col-md-2 col-lg-1" id="bvsFrameLogo">
+				<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/bvs_color.svg"  alt="" class="img-fluid">
 			</div>
-			<div class="clearfix"></div>
+			<div class="col-9 col-md-10 col-lg-11" id="bvsFrameTitle">
+				<?php if ( $arguments['title'] ) : ?>
+				<p><b><?php echo shortened_string($encode($arguments['title']), false); ?></b></p>
+				<?php else : ?>
+				<p><b><?php echo $texts['SIMILAR_TO']; ?>:</b> <?php echo shortened_string($encode($arguments['query']), false); ?></p>
+				<?php endif; ?>
+			</div>
+			</div>
 		</div>
 	</div>
 	<div id="bvsFrameList">
@@ -47,7 +50,7 @@
 								<div>
 									<a href="<?php echo $encode($similar['url']); ?>" target="_blank"><?php echo $encode($similar['title']); ?></a><br>
 								</div>
-								<hr>
+								<hr />
 								<?php endforeach; ?>
 							<?php else : ?>
 							<div class="text-center"><?php echo $texts['NO_SIMILAR_FOUND']; ?></div>
@@ -57,13 +60,12 @@
 				</div>
 				<?php endforeach; ?>
 			</div>
-			<br>
+			<br />
 			<div class="text-center">
 				<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
 			</div>
-			<div class="text-center" id="logoSimilar">
-				<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
-			</div>
+			<hr />
+			<p class="text-center"><small><?php echo $texts['POWERED_BY']; ?> <a href=""><img src=img/logoSimilarEmbed.png  alt="" style="max-height: 20px;"></a></small></p>
 		</div>
 		<div id="bvsFrameShare">
 			<div class="container">

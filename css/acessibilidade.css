@@ -1,4 +1,4 @@
-#barAcessibilidade{background: #3b2c85; color: #fff; padding: 6px 0; font-size: 13px; }
+#barAcessibilidade{background: #799735; color: #fff; padding: 6px 0; font-size: 13px; }
 #barAcessibilidade a{color: #fff; text-decoration: none;}
 #barAcessibilidade a:hover{color: #ddd;}
 #acessibilidadeFontes{text-align: right;}
@@ -71,6 +71,6 @@
 	#acessibilidadeFontes{text-align: center;}
 	.hiddenMobile{display: none;}
 	#barAcessibilidade{text-align: center;}
-	#speakBtn{left: 30px; margin-left:0}
-	#q{padding-left: 40px; padding-right:10px}
+	#speakBtn{left: 0px;}
+	#q{padding-left: 50px;}
 }

@@ -24,7 +24,7 @@
 
 	<section>
 		<div class="container">
-			<div class="row padding1" id="main_container">
+			<div class="row" id="main_container">
 				<div class="col-md-3 d-print-none">
 					<div class="select-theme">
 						<div class="titleBox2"><?php echo $texts['DISPLAY_AS']; ?></div>
@@ -48,10 +48,10 @@
 				</div>
 				<?php if ( 'tabs' == $arguments['theme'] ) : ?>
 				<div class="col-md-9 d-print-block">
-					<div class="box4">
+					<div class="box1">
 						<div class="titleArt"><b><?php echo $texts['SIMILAR_TO']; ?>: </b><?php echo $encode($arguments['query']); ?></div>
 					</div>
-					<div class="box4">
+					<div class="box1">
 						<ul class="nav nav-tabs" id="myTab" role="tablist">
 							<?php foreach ($databases as $key => $value) : reset($databases); ?>
 							<li class="nav-item">
@@ -68,7 +68,7 @@
 									<div>
 										<a href="<?php echo $encode($similar['url']); ?>" target="_blank"><?php echo $encode($similar['title']); ?></a><br>
 									</div>
-									<hr>
+									<hr />
 									<?php endforeach; ?>
 								<?php else : ?>
 								<div class="text-center"><?php echo $texts['NO_SIMILAR_FOUND']; ?></div>
@@ -84,35 +84,29 @@
 				</div>
 				<?php elseif ( $similarDocs ) : ?>
 				<div class="col-md-9 d-print-block">
-					<div class="box4">
+					<div class="box1">
 						<div class="titleArt"><b><?php echo $texts['SIMILAR_TO']; ?>: </b><?php echo $encode($arguments['query']); ?></div>
 					</div>
-					<div class="box4">
+					<div class="box1">
 						<?php foreach ($similarDocs as $similar) : ?>
 						<div>
 							<a href="<?php echo $encode($similar['url']); ?>" target="_blank"><?php echo $encode($similar['title']); ?></a><br>
 							<!-- Base de Dados: <a href=""><b>LILACS</b></a> -->
 						</div>
-						<hr>
+						<hr />
 						<?php endforeach; ?>
-						<div class="embed-button">
+						<div class="embed-button text-center">
 							<button type="button" class="btnBlueM" data-toggle="modal" data-target="#modal"><?php echo $texts['EMBED_CODE']; ?></button>
 						</div>
 					</div>
 				</div>
 				<?php else : ?>
 				<div class="col-md-9 d-print-block">
-					<div class="box4">
+					<div class="box1">
 						<div class="titleArt text-center"><?php echo $texts['NO_SIMILAR_FOUND']; ?></div>
 					</div>
 				</div>
 				<?php endif; ?>
-			</div>
-			<div class="text-center box4" style="margin-top: -30px">
-				<img src="http://logos.bireme.org/img/<?php echo $arguments['lang']; ?>/h_bir_color.svg" alt="" class="img-fluid">
-			</div>
-			<div class="text-center" id="logoSimilar">
-				<a href=""><img src="img/similarInfo.png" width="200px" alt=""></a>
 			</div>
 		</div>
 	</section>

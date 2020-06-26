@@ -1,24 +1,28 @@
 body{
-	background: #f5f5f5;font-family: 'Source Sans Pro', sans-serif; font-weight: 400;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
 }
-.clear{
-	clear: both;
+#similarinfo{
+	text-align: center;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #fff;
+}
+#similarinfo img{
+	max-height: 20px;
 }
 #bvsFrameBoxTitle{
 	margin-bottom: 20px;
-	background-color: rgba(255,255,255,0.8);
 	padding: 10px;
-}
-#bvsFrameLogo{
-	max-width: 60px;
-	float: left;
-	margin:0 10px 10px 0;
-}
-#bvsFrameLogo img{
-	width: 100%;
+	position: relative;
+	background: #f5f5f5;
 }
 #bvsFrameTitle{
-	font-size: 14px;
+	border:1px solid #ddd;
+}
+#bvsFrameBoxTitle p{
+	/*font-weight: bold;*/
+	margin-top: 10px;
 }
 #bvsFrameList{
 	margin-bottom: 50px;
@@ -93,4 +97,9 @@ span.show-all {
 	background: #123;
 	margin-top: 15px;
 	padding: 10px;
+}
+@media (max-width: 768px){
+	#bvsFrameList, #bvsFrameBoxTitle p{
+		font-size: 14px;
+	}
 }

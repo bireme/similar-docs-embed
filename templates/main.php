@@ -42,7 +42,7 @@
 				            <?php endforeach; ?>
 				        </select>
 					</div>
-					<div>
+					<div class="btn-filter">
 						<button type="submit" class="btnBlueM" id="btnFiltroD"><?php echo $texts['APPLY']; ?></button>
 					</div>
 				</div>
